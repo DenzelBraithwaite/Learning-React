@@ -1,4 +1,4 @@
-import './CSS/ExpenseItem.css'
+import './ExpenseItem.css'
 
 const ExpenseItem = () => {
   return (
