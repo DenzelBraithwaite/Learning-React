@@ -3,11 +3,10 @@ import AddUser from './components/AddUser';
 import ListUser from './components/ListUser';
 
 const App = () => {
-  const [users, setUsers] = useState([{id: 1, username: 'FirstUserTest', age: 99}]);
-  const [userId, setUserId] = useState(2);
+  const [users, setUsers] = useState([]);
+  const [userId, setUserId] = useState(1);
 
   const createUserHandler = (username, age) => {
-    console.log(`newUserId => ${userId}`)
     setUsers(previousUsers => {
       return [
         ...previousUsers,
