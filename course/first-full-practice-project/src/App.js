@@ -7,10 +7,12 @@ const App = () => {
   const [userId, setUserId] = useState(2);
 
   const createUserHandler = (username, age) => {
+    console.log(`newUserId => ${userId}`)
     setUsers([
       ...users,
-      {id: setUserId(userId + 1), username: username, age: age}
+      {id: userId, username: username, age: age}
     ])
+    setUserId(userId + 1);
   };
 
   return (
