@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AddUser from './components/AddUser';
 import ListUser from './components/ListUser';
 
+const App = () => {
+  const [username, setUsername] = useState('');
+  const [age, setAge] = useState('');
 
-function App() {
+  const createUserHandler = (username, age) => {
+    setUsername(username);
+    setAge(age);
+  };
+
   return (
     <div>
-      <AddUser></AddUser>
-      <ListUser></ListUser>
+      <AddUser onCreateUser={createUserHandler}></AddUser>
+      <ListUser username={username} age={age}></ListUser>
     </div>
   );
 }
