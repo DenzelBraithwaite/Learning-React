@@ -8,10 +8,7 @@ import cssClasses from '../UI/Card.module.css';
 const AddUser = props => {
     const [enteredUsername, setEnteredUsername] = useState('');
     const [enteredAge, setEnteredAge] = useState('');
-    const [isValid, setIsValid] = useState(true);
-    // const [modalTitle, setModalTitle] = useState("Something went wrong.");
-    // const [modalMessage, setModalMessage] = useState('Please try again later');
-    const [modalInfo, setModalInfo] = useState({title: 'Something went wrong', message: 'please try again'})
+    const [modalError, setModalError] = useState(null);
 
     const addUserHandler = (event) => {
         event.preventDefault();
@@ -44,18 +41,17 @@ const AddUser = props => {
         setEnteredAge(event.target.value);
     };
 
-    const ModalHandler = (modalInfo) => {
-        setModalInfo({title: modalInfo.title, message: modalInfo.message})
-        setIsValid(false);
+    const ModalHandler = (errorInfo) => {
+        setModalError({title: errorInfo.title, message: errorInfo.message})
     };
 
-    const closeModalHandler = () => {
-        setIsValid(true);
+    const errorModalHandler = () => {
+        setModalError(null);
     };
 
     return(
         <div>
-           {!isValid && <Modal onCloseModal={closeModalHandler} title={modalInfo.title} message={modalInfo.message} />}
+           {modalError && <Modal onCloseModal={errorModalHandler} title={modalError.title} message={modalError.message} />}
             <Card className={cssClasses.input}>
                 <form onSubmit={addUserHandler}>
                     <label htmlFor="username">Username</label>

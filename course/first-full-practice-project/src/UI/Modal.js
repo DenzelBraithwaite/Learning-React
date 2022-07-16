@@ -6,7 +6,7 @@ const Modal = props => {
 
     return(
         <div>
-            <div className={cssClasses.backdrop} />
+            <div className={cssClasses.backdrop} onClick={props.onCloseModal}/>
             <Card className={cssClasses.modal}>
                 <header className={cssClasses.header}>
                     <h2>{props.title}</h2>
