@@ -8,15 +8,19 @@ import cssClasses from '../UI/Card.module.css';
 const AddUser = props => {
     const [enteredUsername, setEnteredUsername] = useState('');
     const [enteredAge, setEnteredAge] = useState('');
-    const [isValid, setIsValid] = useState(false);
+    const [isValid, setIsValid] = useState(true);
+    const [modalTitle, setModalTitle] = useState("Something went wrong.");
+    const [modalMessage, setModalMessage] = useState('Please try again later');
 
     const addUserHandler = (event) => {
         event.preventDefault();
         if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
+            ModalHandler("Username too short", "Username cannot be left blank");
             return;
         }
 
         if (+enteredAge <= 0) {
+            ModalHandler("Age too low", "Age less than 1");
             return;
         }
         
@@ -33,9 +37,19 @@ const AddUser = props => {
         setEnteredAge(event.target.value);
     };
 
+    const ModalHandler = (title, message) => {
+        setModalTitle(title)
+        setModalMessage(message)
+        setIsValid(false);
+    };
+
+    const closeModalHandler = (title, message) => {
+        setIsValid(true);
+    };
+
     return(
         <div>
-            <Modal title="Something went wrong" content="Please try again in a few minutes" />
+           {!isValid && <Modal onCloseModal={closeModalHandler} title={modalTitle} message={modalMessage} />}
             <Card className={cssClasses.input}>
                 <form onSubmit={addUserHandler}>
                     <label htmlFor="username">Username</label>
