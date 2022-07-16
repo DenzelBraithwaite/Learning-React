@@ -20,18 +20,6 @@ const App = () => {
     <div>
       <AddUser onCreateUser={createUserHandler}></AddUser>
       <ListUser users={users}/>
-      <AddUser onCreateUser={createUserHandler}></AddUser>
-      <ListUser users={users}/>
-      <AddUser onCreateUser={createUserHandler}></AddUser>
-      <ListUser users={users}/>
-      <AddUser onCreateUser={createUserHandler}></AddUser>
-      <ListUser users={users}/>
-      <AddUser onCreateUser={createUserHandler}></AddUser>
-      <ListUser users={users}/>
-      <AddUser onCreateUser={createUserHandler}></AddUser>
-      <ListUser users={users}/>
-      <AddUser onCreateUser={createUserHandler}></AddUser>
-      <ListUser users={users}/>
     </div>
   );
 }
