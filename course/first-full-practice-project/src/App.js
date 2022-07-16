@@ -8,10 +8,12 @@ const App = () => {
 
   const createUserHandler = (username, age) => {
     console.log(`newUserId => ${userId}`)
-    setUsers([
-      ...users,
-      {id: userId, username: username, age: age}
-    ])
+    setUsers(previousUsers => {
+      return [
+        ...previousUsers,
+        {id: userId, username: username, age: age}
+      ]
+    })
     setUserId(userId + 1);
   };
 
