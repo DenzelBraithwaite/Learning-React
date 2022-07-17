@@ -31,12 +31,10 @@ const AddUser = props => {
     };
 
     const usernameHandler = event => {
-        console.log(event.target.value);
         setEnteredUsername(event.target.value);
     };
 
     const ageHandler = event => {
-        console.log(event.target.value);
         setEnteredAge(event.target.value);
     };
 
@@ -45,14 +43,14 @@ const AddUser = props => {
     };
 
     return (
-        <Card>
+        <Card className={cssClasses.input}>
             {errorMessage && <ErrorModal onCloseModal={modalCloseHandler} error={errorMessage}/>}
             <form onSubmit={addUserHandler} className={cssClasses.input} >
                 <label htmlFor="username">Username</label>
                 <input onChange={usernameHandler} value={enteredUsername} id="username" type="text"></input>
                 <label htmlFor="age">Age (in years)</label>
                 <input onChange={ageHandler} value={enteredAge} id="age" type="number"></input>
-                <Button type="submit">Click me</Button>
+                <Button type="submit">Add user</Button>
             </form>
         </Card>
     )

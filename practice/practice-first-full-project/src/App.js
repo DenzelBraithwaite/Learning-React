@@ -10,7 +10,6 @@ function App() {
     setUserList(prevValues => {
       return [...prevValues, userInfo];
     })
-    console.log(userList);
   };
 
   return (

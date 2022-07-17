@@ -4,7 +4,8 @@ import cssClasses from './ErrorModal.module.css';
 
 const ErrorModal = props => {
     return(
-        <div className={cssClasses.backdrop}>
+        <div>
+            <div className={cssClasses.backdrop} onClick={props.onCloseModal}>
             <Card className={cssClasses.modal}>
                 <header className={cssClasses.header}>
                     <h2>{props.error.title}</h2>
@@ -13,9 +14,10 @@ const ErrorModal = props => {
                     <p>{props.error.message}</p>
                 </div>
                 <footer className={cssClasses.actions}>
-                    <Button onClick={props.onCloseModal} >Okay</Button>
+                    <Button onClick={props.onCloseModal}>Okay</Button>
                 </footer>
             </Card>
+            </div>
         </div>
     )
 };
