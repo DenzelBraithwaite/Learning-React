@@ -3,8 +3,10 @@ import cssClasses from './ListUser.module.css';
 
 const ListUser = props => {
     return(
-        <Card>
-            <h3>test</h3>
+        <Card className={cssClasses.user}>
+            <ul>
+                {props.users.map(user => <li key={user.id}>{user.username}</li>)}
+            </ul>
         </Card>
     )
 };

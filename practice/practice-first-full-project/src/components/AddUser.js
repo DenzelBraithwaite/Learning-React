@@ -7,6 +7,7 @@ import cssClasses from './AddUser.module.css';
 const AddUser = props => {
     const [enteredUsername, setEnteredUsername] = useState('');
     const [enteredAge, setEnteredAge] = useState('');
+    const [userId, setUserId] = useState(1);
 
     const addUserHandler = (event) => {
         event.preventDefault();
@@ -18,7 +19,8 @@ const AddUser = props => {
             return;
         }
 
-        
+        props.onAddUser({id: userId, username: enteredUsername, age: enteredAge});
+        setUserId(prevId => prevId + 1);
         setEnteredUsername('');
         setEnteredAge('');
     };
