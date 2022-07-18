@@ -47,9 +47,9 @@ const AddUser = props => {
             {errorMessage && <ErrorModal onCloseModal={modalCloseHandler} error={errorMessage}/>}
             <form onSubmit={addUserHandler} className={cssClasses.input} >
                 <label htmlFor="username">Username</label>
-                <input onChange={usernameHandler} value={enteredUsername} id="username" type="text"></input>
+                <input onChange={usernameHandler} value={enteredUsername} id="username" type="text" />
                 <label htmlFor="age">Age (in years)</label>
-                <input onChange={ageHandler} value={enteredAge} id="age" type="number"></input>
+                <input onChange={ageHandler} value={enteredAge} id="age" type="number" />
                 <Button type="submit">Add user</Button>
             </form>
         </Card>
