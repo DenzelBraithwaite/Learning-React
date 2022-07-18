@@ -1,0 +1,1 @@
+const test = 'Github not picking up my repo language, trying to have it read this file and recognize JavaScript';
