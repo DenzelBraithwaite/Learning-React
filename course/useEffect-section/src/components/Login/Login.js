@@ -90,7 +90,11 @@ const Login = props => {
 
     const submitHandler = event => {
         event.preventDefault();
-        context.onLogin(emailState.value, passwordState.value);
+        if (formIsValid) {
+            context.onLogin(emailState.value, passwordState.value);
+        } else if (!emailIsValid) {
+        } else {
+        }
     };
 
     return (
